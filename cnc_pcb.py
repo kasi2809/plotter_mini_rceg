@@ -1,6 +1,6 @@
 import cv2
-import serial
-ser=serial.Serial('com5',115200)
+# import serial
+# ser=serial.Serial('com5',115200)
 mm_per_step_x=0.15
 mm_per_step_y=0.15
 #--------------------PCB dimensions(in mm)----------------
@@ -9,7 +9,7 @@ pcb_height=80
 #--------------------------------------------------
 points=[]
 area_list=[]
-img=cv2.imread("level indicator .jpg")
+img=cv2.imread("test#2.png")
 img=cv2.resize(img,(600,600))
 cv2.imshow("Initial",img)
 
@@ -34,10 +34,11 @@ print("Width=",width,"\nHeight=",height)
 #Locating soldering co-ordinates
 img_f = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 contoursf, _ = cv2.findContours(img_f, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+print(len(contoursf))
 for cnt in contoursf:
     area = cv2.contourArea(cnt)
-    if area<50:
-        cv2.drawContours(img,cnt,-1,(255,0,0),2)
+    if area<120:
+        cv2.drawContours(img,cnt,-1,(255,255,255),2)
         M = cv2.moments(cnt)
         cX = int(M["m10"] / M["m00"])
         cY = int(M["m01"] / M["m00"])
@@ -48,6 +49,7 @@ for cnt in contoursf:
         cy = round(cy,3)
         points.append([cx,cy])
 cv2.imshow("Final",img)
+cv2.waitKey(0)
 print("Total points to solder:",len(points))
 
 #to be edited by giri
@@ -82,12 +84,12 @@ print("Steps needed:")
 print(steps)
 
 #Sending data to Arduino
-index=0
-while True:
-    if str(ser.readline())=="NEXT":
-        ser.write(steps[index])
-        index+=1
-    if index==len(steps):
-        break
+# index=0
+# while True:
+#     if str(ser.readline())=="NEXT":
+#         ser.write(steps[index])
+#         index+=1
+#     if index==len(steps):
+#         break
 
 cv2.waitKey(0)
