@@ -1,6 +1,6 @@
 import cv2
 import serial
-ser=serial.Serial('com11',115200)
+ser=serial.Serial('com10',115200)
 mm_per_step_x=0.15
 mm_per_step_y=0.15
 #--------------------PCB dimensions(in mm)---------
@@ -101,8 +101,9 @@ print(steps)
 #Sending data to Arduino
 index=0
 while True:
-    if str(ser.readline())=="NEXT":
-        ser.write(steps[index])
+    if str(ser.readline())=="b\'NEXT\\r\\n\'":
+        value = str(steps[index][0])+","+str(steps[index][1])+"\n"
+        ser.write(value.encode('utf-8'))
         index+=1
     if index==len(steps):
         break
