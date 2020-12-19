@@ -1,6 +1,6 @@
 import cv2
-# import serial
-# ser=serial.Serial('com5',115200)
+import serial
+ser=serial.Serial('com11',115200)
 mm_per_step_x=0.15
 mm_per_step_y=0.15
 #--------------------PCB dimensions(in mm)---------
@@ -90,21 +90,21 @@ print("Difference:")
 print(error)
 
 #Calculating steps needed to move
-# steps=[]
-# for i in range(len(error)):
-#     steps_x=int(error[i][0]/mm_per_step_x)
-#     steps_y=int(error[i][1]/mm_per_step_y)
-#     steps.append([steps_x,steps_y])
-# print("Steps needed:")
-# print(steps)
+steps=[]
+for i in range(len(error)):
+    steps_x=int(error[i][0]/mm_per_step_x)
+    steps_y=int(error[i][1]/mm_per_step_y)
+    steps.append([steps_x,steps_y])
+print("Steps needed:")
+print(steps)
 
 #Sending data to Arduino
-# index=0
-# while True:
-#     if str(ser.readline())=="NEXT":
-#         ser.write(steps[index])
-#         index+=1
-#     if index==len(steps):
-#         break
+index=0
+while True:
+    if str(ser.readline())=="NEXT":
+        ser.write(steps[index])
+        index+=1
+    if index==len(steps):
+        break
 
 cv2.waitKey(0)
