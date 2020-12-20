@@ -1,11 +1,11 @@
 import cv2
 import serial
-ser=serial.Serial('com10',115200)
-mm_per_step_x=0.15
-mm_per_step_y=0.15
+ser=serial.Serial('com5',115200)
+mm_per_step_x=0.12
+mm_per_step_y=0.12
 #--------------------PCB dimensions(in mm)---------
-pcb_width=60
-pcb_height=80
+pcb_width=40
+pcb_height=40
 #--------------------------------------------------
 points=[]
 area_list=[]
