@@ -35,7 +35,6 @@ def twoRobots(containerNo, query, robotAPos_temp=None, robotBPos_temp=None):
     else:
         robotBPos = instruction[1][1]
         distanceCovered.append(abs(instruction[1][1] - instruction[1][0]))
-
     for i in range(2, len(instruction)):
         if (abs(robotAPos - instruction[i][0]) > abs(robotBPos - instruction[i][0])):
             robotBPos = instruction[i][1]
@@ -46,14 +45,11 @@ def twoRobots(containerNo, query, robotAPos_temp=None, robotBPos_temp=None):
 
     robotAPos_temp = robotAPos
     robotBPos_temp = robotBPos
-
+    print(distanceCovered)
     return sum(distanceCovered)
 
 
 try:
-
-    ####################################################################################################
-    # getting input from user
     testCase = int(input())
     if (testCase < 1 or testCase > 50):
         raise ValueError
@@ -65,13 +61,10 @@ try:
         query = int(mn[1])
         if ((containerNo < 1 or containerNo > 1000) or (query < 1 or query > 1000)):
             raise ValueError
-        # insert towRobots() here
         minDis = twoRobots(containerNo,query)
         print(minDis)
 
         testCase -= 1
-
-####################################################################################################
 
 except:
     pass
