@@ -1,6 +1,5 @@
 # Global variable
-robotAPos_temp = 0
-robotBPos_temp = 0
+
 
 def twoRobots(containerNo, query, robotAPos_temp=None, robotBPos_temp=None):
     robotAPos = robotBPos = 0
@@ -22,11 +21,10 @@ def twoRobots(containerNo, query, robotAPos_temp=None, robotBPos_temp=None):
     # disctance covered
     distanceCovered = []
 
-    if (robotAPos_temp == instruction[0][0]):
-        robotAPos = instruction[0][1]
-
-    elif (robotBPos_temp == instruction[0][0]):
+    if (robotBPos_temp == instruction[0][0]):
         robotBPos = instruction[0][1]
+    else:
+        robotAPos = instruction[0][1]
 
     distanceCovered.append(abs(instruction[0][1] - instruction[0][0]))
     # instruction.pop(0)
