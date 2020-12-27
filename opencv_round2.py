@@ -111,7 +111,7 @@ def filter_color(img_1,values):
 
             elif (len(approx) == 4):
                 shape_name="Quadrilateral"
-            elif len(approx)>10:
+            elif len(approx)>7:
                 shape_name="Circle"
             shape_data = [shape_name,color[p], values+1, cX, cY]
 
