@@ -40,8 +40,7 @@ def applyPerspectiveTransform(input_img):
 
     M = cv2.getPerspectiveTransform(corners, dst)
     warped_img = cv2.warpPerspective(input_img, M, (800,800))
-    # cv2.imshow("warped",warped_img)
-    # cv2.waitKey(0)
+    
     return warped_img
 
 #########################################
