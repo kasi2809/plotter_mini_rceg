@@ -1,8 +1,16 @@
+########## Imported Libraries ##########
 import cv2
 import numpy as np
+
+########## Global variables ############
 global shapes
 shapes=[]
 
+########## Utility Functions ############
+
+#########################################
+###    Apply Perspective Transform    ###
+#########################################
 def applyPerspectiveTransform(input_img):
     warped_img = None
     imgray = cv2.cvtColor(input_img, cv2.COLOR_BGR2GRAY)
@@ -36,6 +44,10 @@ def applyPerspectiveTransform(input_img):
     # cv2.waitKey(0)
     return warped_img
 
+#########################################
+###         Spliting the grid         ###
+#########################################
+
 def splitBoxes(img_b):
     rows = np.split(img_b, 5)
     boxes = []
@@ -43,9 +55,11 @@ def splitBoxes(img_b):
         cols = np.hsplit(r, 5)
         for box in cols:
             boxes.append(box)
-            # cv2.imshow("box",box)
-            # cv2.waitKey(0)
     return boxes
+
+#########################################
+###   Filtering the color and shape   ###
+#########################################
 def filter_color(img_1,values):
     shape_data=[]
     # Filtering blue color shapes
@@ -70,18 +84,12 @@ def filter_color(img_1,values):
     color = ["red", "green", "blue"]
     for p, im in enumerate(images):
 
-        #im = cv2.blur(im, (3, 3))
         imgray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 
         # Finding contours for each colour
         contours, _ = cv2.findContours(imgray, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        # cv2.drawContours(image, contours, -1, (255, 255, 255), 3)
 
         for cnt in contours:
-
-            # Finding area of contour
-            # area = cv2.contourArea(cnt)
-
             # Finding centroid of contour
             M = cv2.moments(cnt)
             cX = int(M["m10"] / M["m00"])
@@ -107,7 +115,9 @@ def filter_color(img_1,values):
 
     return shape_data
 
-###########
+########################################
+###           Main Program           ###
+########################################
 img = cv2.imread("grid_2.jpg")
 
 warped=applyPerspectiveTransform(img)
@@ -123,8 +133,3 @@ for val,image in enumerate(cells):
         temp_dic={}
 
 print(shapes)
-
-cv2.imshow("shape",img)
-cv2.waitKey(0)
-
-
