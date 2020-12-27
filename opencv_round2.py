@@ -82,8 +82,11 @@ def filter_color(img_1,values):
     img_red = cv2.bitwise_and(img_1, img_1, mask=mask_red)
     images = [img_red, img_green, img_blue]
     color = ["red", "green", "blue"]
-    for p, im in enumerate(images):
-
+    for p,im in enumerate(images):
+        kernel = np.ones((3,3), np.uint8)
+        im = cv2.dilate(im, kernel, iterations=1)
+        im = cv2.erode(im, kernel, iterations=1)
+        
         imgray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 
         # Finding contours for each colour
