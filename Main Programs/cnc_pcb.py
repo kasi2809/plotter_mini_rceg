@@ -1,62 +1,38 @@
-import cv2
+
+#======================================================
+#                 CNC SOLDERING MACHINE
+#======================================================
+
+#======== LIBRARIES IMPORTED =========
 import serial
+import xlrd
+
+#========= GLOBAL VARIABLES ==========
 ser=serial.Serial('com5',115200)
 mm_per_step_x=0.12
 mm_per_step_y=0.12
-#--------------------PCB dimensions(in mm)---------
-pcb_width=40
-pcb_height=40
-#--------------------------------------------------
 points=[]
-area_list=[]
-img=cv2.imread("test#1.jpg")
-img=cv2.resize(img,(600,600))
-cv2.imshow("Initial",img)
 
-#Removing black area
-img_p = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-contours, _ = cv2.findContours(img_p, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-for cnt in contours:
-    area = cv2.contourArea(cnt)
-    area_list.append(area)
-green_contour=contours[area_list.index(max(area_list))]
-x1=green_contour[0][0][0]
-x2=green_contour[2][0][0]
-y1=green_contour[0][0][1]
-y2=green_contour[2][0][1]
-img=img[y1:y2,x1:x2]
-width=img.shape[1]
-height=img.shape[0]
-print("Cropped Image dimensions(px):")
-print("Width=",width,"\nHeight=",height)
+#===== Locating the co-ordinates =====
+wb = xlrd.open_workbook("test_board.xls")
+sheet = wb.sheet_by_index(0)
 
+for i in range(len(sheet.col_values(2))):
+    if sheet.cell_value(i,2) == 1:
+        co_ord = sheet.cell_value(i,10)
+        co_ord=(co_ord[1:len(co_ord)-1]).split(')(')
+        for co_str in co_ord:
+            co_str=co_str.replace(' ',',')
+            co = co_str.split(',')
+            points.append([float(co[0]),float(co[1])])
 
-#Locating soldering co-ordinates
-img_f = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-contoursf, _ = cv2.findContours(img_f, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-print(len(contoursf))
-for cnt in contoursf:
-    area = cv2.contourArea(cnt)
-    if area<50:
-        cv2.drawContours(img,cnt,-1,(255,255,255),2)
-        M = cv2.moments(cnt)
-        cX = int(M["m10"] / M["m00"])
-        cY = int(M["m01"] / M["m00"])
-        #cv2.putText(img,str(cX),(cX,cY),cv2.FONT_HERSHEY_TRIPLEX,1,(255,0,0),1)
-        cx=(pcb_width*cX)/width
-        cx=round(cx,4)
-        cy=(pcb_height*cY)/height
-        cy = round(cy,4)
-        points.append([cx,cy])
-cv2.imshow("Final",img)
-cv2.waitKey(0)
 print("Total points to solder:",len(points))
+print("Points of PTH : ",points)
 
-#to be edited by giri
-#nearest points
+
+#========= nearest points =========
 ref_pt = [0,0]
 sorted_points = []
-img1 = cv2.imread('test#1.jpg')
 for j in range(0,len(points)):
     min_dis = 0.00
     for i in range(0,len(points)):
@@ -72,8 +48,7 @@ for j in range(0,len(points)):
 print("Final solder point co-ordinates:")
 print(sorted_points)
 
-
-#Printing difference b/w 2 points
+#===== Printing difference b/w 2 points =====
 error=[]
 for i in range(len(sorted_points)-1):
     p1x=sorted_points[i][0]
@@ -89,7 +64,7 @@ error.insert(0,sorted_points[0])
 print("Difference:")
 print(error)
 
-#Calculating steps needed to move
+#===== Calculating steps needed to move =====
 steps=[]
 for i in range(len(error)):
     steps_x=int(error[i][0]/mm_per_step_x)
@@ -98,7 +73,7 @@ for i in range(len(error)):
 print("Steps needed:")
 print(steps)
 
-#Sending data to Arduino
+#===== Sending data to Microcontroller ======
 index=0
 while True:
     if str(ser.readline())=="b\'NEXT\\r\\n\'":
@@ -107,5 +82,3 @@ while True:
         index+=1
     if index==len(steps):
         break
-
-cv2.waitKey(0)
