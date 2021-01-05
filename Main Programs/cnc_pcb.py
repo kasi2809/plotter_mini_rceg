@@ -8,7 +8,10 @@ import serial
 import xlrd
 
 #========= GLOBAL VARIABLES ==========
-ser=serial.Serial('com5',115200)
+try:
+    ser=serial.Serial('com5',115200)
+except:
+    pass
 mm_per_step_x=0.12
 mm_per_step_y=0.12
 points=[]
@@ -74,11 +77,14 @@ print("Steps needed:")
 print(steps)
 
 #===== Sending data to Microcontroller ======
-index=0
-while True:
-    if str(ser.readline())=="b\'NEXT\\r\\n\'":
-        value = str(steps[index][0])+","+str(steps[index][1])+"\n"
-        ser.write(value.encode('utf-8'))
-        index+=1
-    if index==len(steps):
-        break
+try:
+    index=0
+    while True:
+        if str(ser.readline())=="b\'NEXT\\r\\n\'":
+            value = str(steps[index][0])+","+str(steps[index][1])+"\n"
+            ser.write(value.encode('utf-8'))
+            index+=1
+        if index==len(steps):
+            break
+except:
+    pass
