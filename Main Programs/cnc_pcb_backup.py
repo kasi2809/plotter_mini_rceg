@@ -69,13 +69,20 @@ print(error)
 
 #===== Calculating steps needed to move =====
 def errorCorrection(error, rawSteps):
-    integralSteps = int(rawSteps)
+    if rawSteps<0:
+        rawSteps=-rawSteps
+        integralSteps=int(rawSteps)
+        integralSteps=-integralSteps
+    else:
+        integralSteps = int(rawSteps)
+
     error += rawSteps - integralSteps
+    #print(error)
     if(error >= 1):
-        error=0
+        error=error-1
         return error, integralSteps + 1
     elif(error <= -1):
-        error=0
+        error=error+1
         return error, integralSteps - 1
     else:
         return error,integralSteps

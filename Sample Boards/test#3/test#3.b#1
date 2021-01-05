@@ -168,8 +168,8 @@ GND</text>
 <wire x1="0" y1="17.78" x2="0" y2="30" width="0.1524" layer="20"/>
 <wire x1="0" y1="30" x2="30" y2="30" width="0.1524" layer="20"/>
 <wire x1="30" y1="30" x2="30" y2="0" width="0.1524" layer="20"/>
-<text x="9.271" y="19.6596" size="1.016" layer="25" rot="R270">LED2</text>
-<text x="9.0424" y="27.194" size="1.016" layer="25" rot="R270">LED1</text>
+<text x="8.89" y="19.6596" size="1.016" layer="25" rot="R270">LED2</text>
+<text x="8.7884" y="27.194" size="1.016" layer="25" rot="R270">LED1</text>
 <text x="13.8176" y="17.0688" size="1.016" layer="25">220Ω </text>
 <text x="13.8176" y="24.5618" size="1.016" layer="25">220Ω </text>
 <text x="24.0952" y="22.1074" size="1.016" layer="25" distance="145" align="center-right">LED1
