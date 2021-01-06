@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="06b057f7-9238-4945-9112-70f06fee6042" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main Programs/cnc_pcb.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main Programs/cnc_pcb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main Programs/cnc_pcb/cnc_pcb.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Main Programs/cnc_pcb/cnc_pcb.ino" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main Programs/cnc_pcb_IP.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main Programs/cnc_pcb_IP.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main Programs/cnc_pcb_backup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main Programs/cnc_pcb_backup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main Programs/level_indicator .xls" beforeDir="false" afterPath="$PROJECT_DIR$/Main Programs/level_indicator .xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sample Boards/test#3/test#3.brd" beforeDir="false" afterPath="$PROJECT_DIR$/Sample Boards/test#3/test#3.brd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main Programs/top.png" beforeDir="false" afterPath="$PROJECT_DIR$/Main Programs/top.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +29,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Main Programs/cnc_pcb.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.cnc_pcb (1)">
+  <component name="RunManager" selected="Python.cnc_pcb_IP">
     <configuration name="cnc_pcb (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="plotter_mini_rceg" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,9 +158,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.cnc_pcb_IP" />
         <item itemvalue="Python.cnc_pcb (1)" />
         <item itemvalue="Python.cnc_pcb_backup" />
-        <item itemvalue="Python.cnc_pcb_IP" />
         <item itemvalue="Python.distance" />
         <item itemvalue="Python.cnc_pcb" />
       </list>
@@ -187,22 +188,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="110" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1609609465288" />
-    <state width="1345" height="202" key="GridCell.Tab.0.bottom" timestamp="1609840895706">
+    <state width="1345" height="175" key="GridCell.Tab.0.bottom" timestamp="1609911893350">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="202" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609840895706" />
-    <state width="1345" height="202" key="GridCell.Tab.0.center" timestamp="1609840895706">
+    <state width="1345" height="175" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609911893350" />
+    <state width="1345" height="175" key="GridCell.Tab.0.center" timestamp="1609911893350">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="202" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1609840895706" />
-    <state width="1345" height="202" key="GridCell.Tab.0.left" timestamp="1609840895706">
+    <state width="1345" height="175" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1609911893350" />
+    <state width="1345" height="175" key="GridCell.Tab.0.left" timestamp="1609911893350">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="202" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1609840895706" />
-    <state width="1345" height="202" key="GridCell.Tab.0.right" timestamp="1609840895706">
+    <state width="1345" height="175" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1609911893350" />
+    <state width="1345" height="175" key="GridCell.Tab.0.right" timestamp="1609911893350">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="202" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1609840895706" />
+    <state width="1345" height="175" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1609911893350" />
     <state width="1344" height="211" key="GridCell.Tab.1.bottom" timestamp="1609609910536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

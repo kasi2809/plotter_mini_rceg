@@ -9,7 +9,7 @@ String Data_x,Data_y;
 #include "BluetoothSerial.h" 
 BluetoothSerial ESP_BT;
 int speedm=1000;
-int delayt=240;
+int delayt=140;
 int time_to_solder=2000;
 
 void moveTo_x(int steps)

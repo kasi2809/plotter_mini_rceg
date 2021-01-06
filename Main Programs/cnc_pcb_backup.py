@@ -12,8 +12,8 @@ try:
     ser=serial.Serial('com5',115200)
 except:
     pass
-mm_per_step_x=0.12
-mm_per_step_y=0.12
+mm_per_step_x=0.13
+mm_per_step_y=0.13
 points=[]
 
 #===== Locating the co-ordinates =====

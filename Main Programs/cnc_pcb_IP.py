@@ -5,15 +5,15 @@ try:
     ser=serial.Serial('com5',115200)
 except:
     pass
-mm_per_step_x=0.12
-mm_per_step_y=0.12
+mm_per_step_x=0.13
+mm_per_step_y=0.13
 #--------------------PCB dimensions(in mm)---------
 pcb_width=40
 pcb_height=40
 #--------------------------------------------------
 points=[]
 area_list=[]
-img=cv2.imread("bottom.png")
+img=cv2.imread("top.png")
 img=cv2.resize(img,(600,600))
 cv2.imshow("Initial",img)
 
