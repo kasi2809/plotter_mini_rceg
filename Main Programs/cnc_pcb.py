@@ -12,12 +12,12 @@ try:
     ser=serial.Serial('com5',115200)
 except:
     pass
-mm_per_step_x=0.008125
-mm_per_step_y=0.008125
+mm_per_step_x=0.13
+mm_per_step_y=0.13
 points=[]
 
 #===== Locating the co-ordinates =====
-wb = xlrd.open_workbook("level_indicator .xls")
+wb = xlrd.open_workbook("test_board.xls")
 sheet = wb.sheet_by_index(0)
 
 for i in range(len(sheet.col_values(2))):
