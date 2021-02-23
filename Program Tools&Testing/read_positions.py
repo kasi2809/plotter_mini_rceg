@@ -4,7 +4,10 @@ import xlrd
 # base = os.path.splitext(my_file)[0]
 # os.rename(my_file, base + '.xls')
 coordinates = []
-wb = xlrd.open_workbook("test_board.xls")
+file_path = input("Enter the file path:")
+
+wb = xlrd.open_workbook(file_path)
+wb = xlrd.open_workbook(file_path)
 sheet = wb.sheet_by_index(0)
 
 for i in range(len(sheet.col_values(2))):
