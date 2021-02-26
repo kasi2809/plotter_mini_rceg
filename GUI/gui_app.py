@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 from PIL import Image,ImageTk
 import os, sys
 import traceback
@@ -17,12 +18,14 @@ import traceback
 #     traceback.print_exc(file=sys.stdout)
 
 window = Tk()
+window.iconbitmap(r'C:\Users\sys\Documents\GitHub\plotter_mini_rceg\GUI\icon2.ico')
 window.geometry("750x250")
 window.title("ELEKTRON")
 
 fl = StringVar()
 cn = StringVar()
 var = StringVar()
+
 def exit1():
     exit()
 
@@ -41,12 +44,41 @@ def reset():
     num_brd.destroy()
     proceed['state'] = NORMAL
 
+def abt():
+    messagebox.showinfo(title="About",message="This is a GUI Application done for the pcb soldering machine.\n Icon Credit:https://free-icon-rainbow.com/soldering-iron-icon-3/")
+
+def callibrate_win():
+    clb_window = Tk()
+    clb_window.title("Calibrate")
+    clb_window.geometry("300x300")
+    up_photo = PhotoImage(file=r"up.png")
+    up_size = up_photo.subsample(3,3)
+    # up = Button(clb_window, text="x", image=up_size,compound=TOP)
+    # up.place(x=50, y=50)
+    # Button(clb_window, text='Click Me !', image=up_size,compound=LEFT).pack(side=TOP)
+
+
 title = Label(window,text="Welcome to PCB Soldering",font=("georgia",16,"bold")).pack()
 
 img = Image.open("CEG_main_logo.png")
 photo = ImageTk.PhotoImage(img)
 logo = Label(image = photo)
 logo.place(x=525,y=10)
+
+menu = Menu(window)
+window.config(menu= menu)
+
+subm1 = Menu(menu)
+menu.add_cascade(label="File",menu=subm1)
+subm1.add_command(label="Exit",command=exit1)
+
+subm2 = Menu(menu)
+menu.add_cascade(label="Tools",menu=subm2)
+subm2.add_command(label="Callibrate",command=callibrate_win)
+
+subm3 = Menu(menu)
+menu.add_cascade(label="Options",menu=subm3)
+subm3.add_command(label="About",command=abt)
 
 file_loca = Label(window,text="Enter file location : ",font=("arial",12,"bold"))
 file_loca.place(x=10,y=40)
@@ -66,6 +98,7 @@ while(i<=50):
 myCombo = ttk.Combobox(window,value=list_cnt)
 myCombo.current(0)
 myCombo.place(x=210,y=84)
+
 
 proceed = Button(window,text="Proceed",width=12,bg="green",fg="white",command = printt)
 proceed.place(x=50,y=140)
