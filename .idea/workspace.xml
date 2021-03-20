@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b057f7-9238-4945-9112-70f06fee6042" name="Default Changelist" comment="" />
+    <list default="true" id="06b057f7-9238-4945-9112-70f06fee6042" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/plotter_mini_rceg.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/plotter_mini_rceg.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/gui_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/gui_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main Programs/cnc_pcb_v1.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main Programs/cnc_pcb_v1.1.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,10 +43,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Main Programs/cnc_pcb.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Main Programs/cnc_pcb_v1_1" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.cnc_pcb (1)">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sys\Documents\GitHub\plotter_mini_rceg\Main Programs\cnc_pcb_v1_1" />
+      <recent name="C:\Users\sys\Documents\GitHub\plotter_mini_rceg\Main Programs" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.gui_app">
     <configuration name="cnc_pcb (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="plotter_mini_rceg" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,7 +116,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cnc_pcb_backup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="cnc_pcb_v1.1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="plotter_mini_rceg" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,7 +128,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main Programs/cnc_pcb_backup.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main Programs/cnc_pcb_v1.1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -106,7 +137,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="distance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="gui_app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="plotter_mini_rceg" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -114,32 +145,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/gui_app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="read_positions (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="plotter_mini_rceg" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\sys\PycharmProjects\Eyantra\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Program Tools&amp;Testing" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Program Tools&amp;Testing/distance.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="read_positions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="plotter_mini_rceg" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/read_positions.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Program Tools&amp;Testing/read_positions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.gui_app" />
+        <item itemvalue="Python.cnc_pcb_v1.1" />
+        <item itemvalue="Python.read_positions (1)" />
         <item itemvalue="Python.cnc_pcb (1)" />
         <item itemvalue="Python.cnc_pcb_IP" />
-        <item itemvalue="Python.cnc_pcb_backup" />
-        <item itemvalue="Python.distance" />
-        <item itemvalue="Python.cnc_pcb" />
       </list>
     </recent_temporary>
   </component>
@@ -171,31 +202,47 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="137" y="10" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609609475487">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="10" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1609609475487" />
+    <state x="392" y="0" key="#read_positions_(1)" timestamp="1614146675716">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="392" y="0" key="#read_positions_(1)/0.0.1366.728@0.0.1366.728" timestamp="1614146675716" />
     <state x="463" y="110" key="FileChooserDialogImpl" timestamp="1609609465288">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="110" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1609609465288" />
-    <state width="1345" height="135" key="GridCell.Tab.0.bottom" timestamp="1610099021786">
+    <state width="1344" height="108" key="GridCell.Tab.0.bottom" timestamp="1615033109851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="135" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610099021786" />
-    <state width="1345" height="135" key="GridCell.Tab.0.center" timestamp="1610099021786">
+    <state width="1344" height="108" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1615033109851" />
+    <state width="1344" height="108" key="GridCell.Tab.0.center" timestamp="1615033109851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="135" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610099021786" />
-    <state width="1345" height="135" key="GridCell.Tab.0.left" timestamp="1610099021785">
+    <state width="1344" height="108" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1615033109851" />
+    <state width="1344" height="108" key="GridCell.Tab.0.left" timestamp="1615033109851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="135" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610099021785" />
-    <state width="1345" height="135" key="GridCell.Tab.0.right" timestamp="1610099021786">
+    <state width="1344" height="108" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1615033109851" />
+    <state width="1344" height="108" key="GridCell.Tab.0.right" timestamp="1615033109851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="135" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610099021786" />
+    <state width="1344" height="108" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1615033109851" />
     <state width="1344" height="211" key="GridCell.Tab.1.bottom" timestamp="1609609910536">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -212,9 +259,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1344" height="211" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1609609910536" />
-    <state x="184" y="0" key="SettingsEditor" timestamp="1609782029027">
+    <state x="184" y="0" key="SettingsEditor" timestamp="1614146756146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1609782029027" />
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1614146756146" />
+    <state x="-5" y="0" width="674" height="703" key="dock-window-1" timestamp="1615106607257">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="-5" y="0" width="674" height="703" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1615106607257" />
   </component>
 </project>
