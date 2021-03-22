@@ -98,7 +98,7 @@ def calulating_steps(error):
 #===== Sending data to Microcontroller ======
 def send_data(steps):
     try:
-        ser=serial.Serial('com12',115200)
+        ser=serial.Serial('com5',115200)
         print(steps)
         try:
             if(type(steps)==list):

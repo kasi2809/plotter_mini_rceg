@@ -231,7 +231,7 @@ void loop()
       moveTo_x(data_x);
       moveTo_y(data_y);
       delay(500);
-      time_to_solder=rad*1000;
+      time_to_solder=rad*5000;
       //Z-axis move up and down
   
       move_down(140);

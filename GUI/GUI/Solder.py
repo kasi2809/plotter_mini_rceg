@@ -5,13 +5,12 @@ from PIL import Image,ImageTk
 import os, sys
 import traceback
 import time,cv2
-import cnc_pcb_v1_1
 import sqlite3
 
 i=0
 j=0
 
-'''
+
 try:
     import cnc_pcb_v1_1
 
@@ -23,7 +22,7 @@ except ImportError:
 except Exception as e:
     print('Your cnc_pcb_v1_1.py throwed an Exception. Kindly debug your code!\n')
     traceback.print_exc(file=sys.stdout)
-'''
+
 
 window = Tk()
 window.iconbitmap('images/icon2.ico')
@@ -197,22 +196,6 @@ myCombo.place(x=210,y=84)
 
 # database
 
-data_base = sqlite3.connect('board_information.db')
-
-c = data_base.cursor()
-
-c.execute("""CREATE TABLE Board_Info 
-            (
-             File name text,
-             Board Count integer,
-             Number of Holes/Board integer,
-             Cost/Board float,
-             Total cost float
-             )                 """)
-
-data_base.commit()
-
-data_base.close()
 
 proceed = Button(window,text="Proceed",width=12,bg="green",fg="white",command = proced)
 proceed.place(x=50,y=140)
