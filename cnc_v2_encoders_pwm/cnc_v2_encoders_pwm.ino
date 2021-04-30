@@ -9,10 +9,11 @@ const int step_x = 18;
 const int step_y = 4;
 const int in3 =21;
 const int in4 =19;
-const int motor_R = 22;
-const int motor_L = 23;
+const int motor_R = 23;
+const int motor_L = 22;
 const int buzz_pin = 15;
 
+const int ir_sensor=3;
 const int extruder_speed = 16;
 const int solder_up_down_speed = 17;
 
@@ -25,7 +26,7 @@ String Data_x,Data_y,Rad,b_count,pt_count;
 
 
 int speedm=1000;
-int time_to_solder=2000;
+int solder_amt_pulse=5;
 
 // Object declaration
 BluetoothSerial ESP_BT;
@@ -42,10 +43,17 @@ void buzz(int t)
 }
 
 void extrude(int t)
-{
+{ int pulse_count=0;
+  int total_amt=solder_amt_pulse*t;
+
   digitalWrite(motor_R,HIGH);
   digitalWrite(motor_L,LOW);
-  delay(t);
+  while(pulse_count!=total_amt)
+  {  
+  if(digitalRead(ir_sensor)==LOW)
+  pulse_count++;   
+  }
+  
   digitalWrite(motor_L,LOW);
   digitalWrite(motor_R,LOW);
 }
@@ -119,10 +127,21 @@ void setup()
   pinMode(motor_R, OUTPUT);
   pinMode(motor_L, OUTPUT);
   pinMode(buzz_pin,OUTPUT);
+  pinMode(ir_sensor,INPUT);
   delay(1000);
   moveTo_x(-300);
   moveTo_y(-300);
   Serial.begin(115200);
+
+
+  ledcSetup(0, 1000, 10);
+ledcAttachPin(extruder_speed, 0);
+  ledcSetup(1, 1000, 10);
+ledcAttachPin(solder_up_down_speed, 1);
+
+ledcWrite(0,1020);//extruder voltage
+ledcWrite(1,520);//z axis up down voltage 
+
   ESP_BT.begin("CNC_PCB");
   while(1)
   {
@@ -234,13 +253,14 @@ void loop()
       Rad="";
       moveTo_x(data_x);
       moveTo_y(data_y);
-      delay(500);
-      time_to_solder=rad*250;
+      //Wait for few seconds after moving to thata point
+      delay(1000);
+
       //Z-axis move up and down
   
-      move_down(50);
-      extrude(time_to_solder);
-      move_up(500);
+      move_down(500);//Time for which the motor is on for going down
+      extrude(rad);
+      move_up(700);//Time for which the motor is on for going up
       pt_cnt+=1;
       if(pt_cnt==(Pt_count-1))
       {

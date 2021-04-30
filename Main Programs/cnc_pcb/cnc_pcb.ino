@@ -79,7 +79,7 @@ void setup()
 void loop()
 {
   int index;
-  ESP_BT.println("NEXT");
+  ESP_BT.println("NEXT");         
   if(ESP_BT.available())
   {
     String val = ESP_BT.readStringUntil('\n');
@@ -87,17 +87,19 @@ void loop()
     index=0;
     while(val[index]!=',')
     { 
-      Data_x+=val[index];
+      Data_x+=val[index];index==3
       index+=1;
     }
     index+=1;
-    while(index<val.length())
+    while(val[index]!=',')
     {
       Data_y+=val[index];
       index+=1;
     }
-    data_x=Data_x.toInt();
-    data_y=Data_y.toInt();
+    index+=1;
+    data_x=Data_x.toInt(); 
+    data_y=Data_y.toInt(); 
+                           
     Serial.print("Steps_x:");
     Serial.print(data_x);
     Serial.print("Steps_y:");
