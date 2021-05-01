@@ -3,7 +3,7 @@
 #                 CNC SOLDERING MACHINE
 #======================================================
 
-# E:\plotter_mini_rceg\Main Programs\test_board.xls
+# E:\GIRINATH R\plotter_mini_rceg\Program Tools&Testing\test_board.xls
 
 #======== LIBRARIES IMPORTED =========
 import serial
@@ -14,6 +14,15 @@ check_pts = {}
 mm_per_step_x=0.13
 mm_per_step_y=0.13
 redius = []
+com_port = ''
+
+#====== Selecting the com port =======
+def select_com_port(selected_port):
+    global com_port
+    com_port=selected_port
+    print("port is set")
+    return 1
+
 #===== Locating the co-ordinates =====
 
 def locate_coordinates(file_path):
@@ -98,7 +107,7 @@ def calulating_steps(error):
 #===== Sending data to Microcontroller ======
 def send_data(steps):
     try:
-        ser=serial.Serial('com5',115200)
+        ser=serial.Serial(com_port,115200)
         print(steps)
         try:
             if(type(steps)==list):
