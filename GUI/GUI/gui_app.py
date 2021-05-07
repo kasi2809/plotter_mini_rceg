@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox
 from PIL import Image,ImageTk
 
-import cnc_pcb_v1_1
+
 import datetime
 
 now = datetime.datetime.now()
@@ -26,7 +26,7 @@ for i in  ports:
     ports_list.append(i.name)
 
 # print(ports_list)
-'''
+
 
 import os, sys
 import traceback
@@ -43,7 +43,7 @@ except ImportError:
 except Exception as e:
     print('Your cnc_pcb_v1_1.py throwed an Exception. Kindly debug your code!\n')
     traceback.print_exc(file=sys.stdout)
-'''
+
 
 window = Tk()
 window.iconbitmap('images/icon2.ico')
