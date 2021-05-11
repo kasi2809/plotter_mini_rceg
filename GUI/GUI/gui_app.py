@@ -3,8 +3,10 @@ from tkinter import ttk
 from tkinter import messagebox
 from PIL import Image,ImageTk
 
-import cnc_pcb_v1_1
 import datetime
+import os, sys
+import traceback
+import time,cv2
 
 now = datetime.datetime.now()
 
@@ -19,6 +21,15 @@ j=0
 ret_val=-1
 pt = '--Port--'
 
+directory = "Bills"
+parent_dir = "C:/Users/sys/Desktop"
+
+path = os.path.join(parent_dir, directory)
+if(os.path.isdir(path)):
+    pass
+else:
+    os.mkdir(path)
+
 ports_list = []
 import serial.tools.list_ports
 ports = serial.tools.list_ports.comports()
@@ -26,11 +37,7 @@ for i in  ports:
     ports_list.append(i.name)
 
 # print(ports_list)
-'''
 
-import os, sys
-import traceback
-import time,cv2
 
 try:
     import cnc_pcb_v1_1
@@ -43,7 +50,6 @@ except ImportError:
 except Exception as e:
     print('Your cnc_pcb_v1_1.py throwed an Exception. Kindly debug your code!\n')
     traceback.print_exc(file=sys.stdout)
-'''
 
 window = Tk()
 window.iconbitmap('images/icon2.ico')
@@ -105,7 +111,7 @@ def select_port():
 def enter_data(file_name,number_of_holes,board_count):
     time = now.strftime("%H:%M:%S")
     today = now.strftime("%d_%m_%Y")
-    name = str(today)+'.txt'
+    name = "C:/Users/sys/Desktop/Bills/" +str(today)+".txt"
     f=open(name,"a")
     info =  "\n\nTime: "+str(time) \
            + "\nFile name: " + str(file_name) \
