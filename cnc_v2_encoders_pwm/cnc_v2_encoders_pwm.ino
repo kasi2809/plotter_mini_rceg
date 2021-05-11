@@ -11,11 +11,13 @@ const int in3 =21;
 const int in4 =19;
 const int motor_R = 23;
 const int motor_L = 22;
-const int buzz_pin = 15;
+const int buzz_pin = 3;
 
-const int ir_sensor=3;
+const int ir_sensor=15;
 const int extruder_speed = 16;
 const int solder_up_down_speed = 17;
+
+int total_amt=0;
 
 int brd_ct =0,B_count=0 ;
 int pt_cnt = 0,Pt_count=0;
@@ -27,6 +29,8 @@ String Data_x,Data_y,Rad,b_count,pt_count;
 
 int speedm=1000;
 int solder_amt_pulse=5;
+
+int pulse_count=0;
 
 // Object declaration
 BluetoothSerial ESP_BT;
@@ -43,16 +47,18 @@ void buzz(int t)
 }
 
 void extrude(int t)
-{ int pulse_count=0;
+{ 
   int total_amt=solder_amt_pulse*t;
 
   digitalWrite(motor_R,HIGH);
   digitalWrite(motor_L,LOW);
-  while(pulse_count!=total_amt)
-  {  
-  if(digitalRead(ir_sensor)==LOW)
-  pulse_count++;   
-  }
+// 
+//  while(pulse_count!=total_amt)
+//  {  
+//    Serial.println(pulse_count);
+//  }
+//  pulse_count=0;
+delay(5000);
   
   digitalWrite(motor_L,LOW);
   digitalWrite(motor_R,LOW);
@@ -114,6 +120,17 @@ void move_up(int t)
   digitalWrite(in3,LOW);
   digitalWrite(in4,LOW);
 }
+
+
+
+
+void IRAM_ATTR isr() {
+  pulse_count++;
+  if(pulse_count==total_amt)
+  pulse_count=0;
+}
+
+
 // setup function
 void setup()
 {
@@ -139,8 +156,10 @@ ledcAttachPin(extruder_speed, 0);
   ledcSetup(1, 1000, 10);
 ledcAttachPin(solder_up_down_speed, 1);
 
-ledcWrite(0,1020);//extruder voltage
+ledcWrite(0,750);//extruder voltage
 ledcWrite(1,520);//z axis up down voltage 
+
+ attachInterrupt(ir_sensor, isr, RISING);
 
   ESP_BT.begin("CNC_PCB");
   while(1)
@@ -259,7 +278,9 @@ void loop()
       //Z-axis move up and down
   
       move_down(500);//Time for which the motor is on for going down
+      total_amt=solder_amt_pulse*rad;
       extrude(rad);
+      delay(3000);//Heating time
       move_up(700);//Time for which the motor is on for going up
       pt_cnt+=1;
       if(pt_cnt==(Pt_count-1))
