@@ -47,18 +47,25 @@ void buzz(int t)
 }
 
 void extrude(int t)
-{ 
+{  int pulse_count=0;
   int total_amt=solder_amt_pulse*t;
 
   digitalWrite(motor_R,HIGH);
   digitalWrite(motor_L,LOW);
-// 
-//  while(pulse_count!=total_amt)
-//  {  
-//    Serial.println(pulse_count);
-//  }
-//  pulse_count=0;
-delay(5000);
+  while (pulse_count!=total_amt)
+  {
+  if(digitalRead(ir_sensor)==HIGH)
+  { delay(55);
+  pulse_count++;
+    Serial.println(pulse_count);
+  }
+  while(digitalRead(ir_sensor)==HIGH)
+  {}
+  }
+  
+
+
+//delay(5000);
   
   digitalWrite(motor_L,LOW);
   digitalWrite(motor_R,LOW);
@@ -123,14 +130,6 @@ void move_up(int t)
 
 
 
-
-void IRAM_ATTR isr() {
-  pulse_count++;
-  if(pulse_count==total_amt)
-  pulse_count=0;
-}
-
-
 // setup function
 void setup()
 {
@@ -159,7 +158,6 @@ ledcAttachPin(solder_up_down_speed, 1);
 ledcWrite(0,750);//extruder voltage
 ledcWrite(1,520);//z axis up down voltage 
 
- attachInterrupt(ir_sensor, isr, RISING);
 
   ESP_BT.begin("CNC_PCB");
   while(1)
@@ -280,8 +278,9 @@ void loop()
       move_down(500);//Time for which the motor is on for going down
       total_amt=solder_amt_pulse*rad;
       extrude(rad);
-      delay(3000);//Heating time
+      delay(3500);//Heating time
       move_up(700);//Time for which the motor is on for going up
+      
       pt_cnt+=1;
       if(pt_cnt==(Pt_count-1))
       {
