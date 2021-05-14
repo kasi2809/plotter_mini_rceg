@@ -27,6 +27,7 @@ def select_com_port(selected_port):
 
 def locate_coordinates(file_path):
     points =[]
+    redius = []
     wb = xlrd.open_workbook(file_path)
     sheet = wb.sheet_by_index(0)
 
@@ -106,6 +107,7 @@ def calulating_steps(error):
 
 #===== Sending data to Microcontroller ======
 def send_data(steps):
+    global com_port
     try:
         ser=serial.Serial(com_port,115200)
         print(steps)
@@ -123,6 +125,7 @@ def send_data(steps):
             else:
                 value=str(steps)
                 ser.write(value.encode('utf-8'))
+
 
         except:
             print("[ERROR]Sending data to microcontroller.Please restart machine.")
