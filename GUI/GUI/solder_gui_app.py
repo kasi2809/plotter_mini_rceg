@@ -9,6 +9,8 @@ import traceback
 import time,cv2
 
 now = datetime.datetime.now()
+import os
+user_name = os.path.expanduser("~")
 
 number_of_holes=0
 board_count=0
@@ -22,7 +24,7 @@ ret_val=-1
 pt = '--Port--'
 
 directory = "Bills"
-parent_dir = "C:/Users/sys/Desktop"
+parent_dir = user_name+"\\Desktop"
 
 path = os.path.join(parent_dir, directory)
 if(os.path.isdir(path)):
@@ -111,7 +113,7 @@ def select_port():
 def enter_data(file_name,number_of_holes,board_count):
     time = now.strftime("%H:%M:%S")
     today = now.strftime("%d_%m_%Y")
-    name = "C:/Users/sys/Desktop/Bills/" +str(today)+".txt"
+    name = user_name + "\\Desktop\\Bills\\" +str(today)+".txt"
     f=open(name,"a")
     info =  "\n\nTime: "+str(time) \
            + "\nFile name: " + str(file_name) \
